@@ -22,7 +22,7 @@ st.set_page_config(
 # FASTAPI URL
 # =========================================================
 
-API_URL = " https://mentalhealth-prediction-8wcv.onrender.com"
+API_URL = "https://mentalhealth-prediction-8wcv.onrender.com"
 
 
 # =========================================================
