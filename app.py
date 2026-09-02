@@ -22,7 +22,7 @@ st.set_page_config(
 # FASTAPI URL
 # =========================================================
 
-API_URL = "http://127.0.0.1:8000/predict"
+API_URL = " https://mentalhealth-prediction-8wcv.onrender.com"
 
 
 # =========================================================
