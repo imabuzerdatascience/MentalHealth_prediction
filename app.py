@@ -30,149 +30,242 @@ API_URL = "https://mentalhealth-prediction-8wcv.onrender.com/predict"
 # =========================================================
 
 st.markdown(""" 
-<style> 
+<style>
 
-    /* ============================== 
-       STREAMLIT INPUT LABELS - BLACK 
-       ============================== */ 
- 
-    /* All input labels */ 
-    div[data-testid="stWidgetLabel"] p { 
-        color: #000000 !important; 
-        font-weight: 600 !important; 
-        font-size: 16px !important; 
-    } 
- 
-    /* Number input labels */ 
-    div[data-testid="stNumberInput"] label p { 
-        color: #000000 !important; 
-    } 
- 
-    /* Selectbox labels */ 
-    div[data-testid="stSelectbox"] label p { 
-        color: #000000 !important; 
-    } 
- 
-    /* Slider labels if you use them */ 
-    div[data-testid="stSlider"] label p { 
-        color: #000000 !important; 
-    } 
- 
-    /* Text input labels */ 
-    div[data-testid="stTextInput"] label p { 
-        color: #000000 !important; 
-    } 
- 
-    /* ============================== 
-       INPUT TEXT 
-       ============================== */ 
- 
-    /* Text inside selectbox */ 
-    div[data-baseweb="select"] span { 
-        color: #ffffff !important; 
-    } 
- 
-    /* Number input text */ 
-    div[data-testid="stNumberInput"] input { 
-        color: #ffffff !important; 
-    } 
- 
-    /* ============================== 
-       SECTION HEADINGS 
-       ============================== */ 
- 
-    .section-title { 
-        color: #000000 !important; 
-        font-size: 22px; 
-        font-weight: 700; 
-        margin-top: 15px; 
-        margin-bottom: 15px; 
-    } 
- 
-    /* ========================================= 
-       PREDICT BUTTON
-       ========================================= */ 
- 
-    button[kind="primaryFormSubmit"] { 
-        background-color: black !important;
-        color: #ffffff !important; 
-        border: none !important; 
-        font-weight: 700 !important; 
-        font-size: 17px !important; 
-        border-radius: 12px !important; 
+    /* =====================================================
+       MAIN APP BACKGROUND
+       ===================================================== */
+
+    .stApp {
+        background: linear-gradient(135deg, #f5f7ff 0%, #eef2ff 100%);
     }
 
-  
- 
-    /* ========================================= 
-       SUCCESS MESSAGE 
-       ========================================= */ 
- 
-    div[data-testid="stAlert"] { 
-        border-radius: 12px !important; 
-    } 
- 
-    div[data-testid="stAlert"] p { 
-        color: #166534 !important; 
-        font-weight: 600 !important; 
-    } 
- 
- 
-    .stApp { 
-        background: linear-gradient(135deg, #f5f7ff 0%, #eef2ff 100%); 
-    } 
- 
-    .block-container { 
-        max-width: 1200px; 
-        padding-top: 2rem; 
-        padding-bottom: 3rem; 
-    } 
- 
-    .main-title { 
-        text-align: center; 
-        font-size: 42px; 
-        font-weight: 800; 
-        color: #1e293b; 
-        margin-bottom: 5px; 
-    } 
- 
-    .subtitle { 
-        text-align: center; 
-        font-size: 17px; 
-        margin-bottom: 35px; 
-        color: black; 
-    } 
- 
-    .section-title { 
-        font-size: 22px; 
-        font-weight: 700; 
-        color: black; 
-        margin-top: 15px; 
-        margin-bottom: 15px; 
-    } 
- 
-    .result-box { 
-        background: white; 
-        padding: 30px; 
-        border-radius: 20px; 
-        text-align: center; 
-        box-shadow: 0 8px 30px rgba(15, 23, 42, 0.08); 
-        border: 1px solid #e2e8f0; 
-        margin-top: 25px; 
-    } 
- 
-    .result-label { 
-        font-size: 18px; 
-        color: #64748b; 
-    } 
- 
-    .result-score { 
-        font-size: 52px; 
-        font-weight: 800; 
-        color: #4f46e5; 
-    } 
- 
-</style> 
+    .block-container {
+        max-width: 1200px;
+        padding-top: 2rem;
+        padding-bottom: 3rem;
+    }
+
+
+    /* =====================================================
+       MAIN TITLE
+       ===================================================== */
+
+    .main-title {
+        text-align: center;
+        font-size: 42px;
+        font-weight: 800;
+        color: #1e293b !important;
+        margin-bottom: 5px;
+    }
+
+    .subtitle {
+        text-align: center;
+        font-size: 17px;
+        margin-bottom: 35px;
+        color: #000000 !important;
+    }
+
+
+    /* =====================================================
+       SECTION HEADINGS
+       ===================================================== */
+
+    .section-title {
+        font-size: 22px;
+        font-weight: 700;
+        color: #000000 !important;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+
+    /* =====================================================
+       ALL STREAMLIT INPUT LABELS
+       ===================================================== */
+
+    div[data-testid="stWidgetLabel"] p,
+    div[data-testid="stNumberInput"] label p,
+    div[data-testid="stSelectbox"] label p,
+    div[data-testid="stTextInput"] label p,
+    div[data-testid="stSlider"] label p {
+        color: #000000 !important;
+        font-weight: 600 !important;
+        font-size: 16px !important;
+    }
+
+
+    /* =====================================================
+       NUMBER INPUT
+       ===================================================== */
+
+    div[data-testid="stNumberInput"] input {
+        color: #000000 !important;
+        -webkit-text-fill-color: #000000 !important;
+        font-weight: 500 !important;
+        background-color: #f8fafc !important;
+    }
+
+    div[data-testid="stNumberInput"] input::placeholder {
+        color: #64748b !important;
+        -webkit-text-fill-color: #64748b !important;
+    }
+
+
+    /* =====================================================
+       NUMBER INPUT + / - BUTTONS
+       ===================================================== */
+
+    div[data-testid="stNumberInput"] button {
+        color: #000000 !important;
+        background-color: transparent !important;
+    }
+
+    div[data-testid="stNumberInput"] button svg {
+        color: #000000 !important;
+        fill: #000000 !important;
+        stroke: #000000 !important;
+    }
+
+
+    /* =====================================================
+       SELECTBOX - SELECTED TEXT
+       ===================================================== */
+
+    div[data-baseweb="select"] {
+        color: #000000 !important;
+    }
+
+    div[data-baseweb="select"] * {
+        color: #000000 !important;
+    }
+
+    div[data-baseweb="select"] span {
+        color: #000000 !important;
+        -webkit-text-fill-color: #000000 !important;
+    }
+
+    div[data-baseweb="select"] input {
+        color: #000000 !important;
+        -webkit-text-fill-color: #000000 !important;
+    }
+
+
+    /* =====================================================
+       SELECTBOX ARROW
+       ===================================================== */
+
+    div[data-baseweb="select"] svg {
+        color: #000000 !important;
+        fill: #000000 !important;
+        stroke: #000000 !important;
+    }
+
+
+    /* =====================================================
+       SELECTBOX DROPDOWN OPTIONS
+       ===================================================== */
+
+    div[role="listbox"] {
+        background-color: #ffffff !important;
+    }
+
+    div[role="option"] {
+        color: #000000 !important;
+        background-color: #ffffff !important;
+    }
+
+    div[role="option"] * {
+        color: #000000 !important;
+    }
+
+    div[role="option"]:hover {
+        background-color: #f1f5f9 !important;
+    }
+
+
+    /* =====================================================
+       INPUT BOXES
+       ===================================================== */
+
+    div[data-testid="stNumberInput"] > div,
+    div[data-baseweb="select"] > div {
+        background-color: #f8fafc !important;
+        border-radius: 8px !important;
+    }
+
+
+    /* =====================================================
+       PREDICT BUTTON
+       ===================================================== */
+
+    button[kind="primaryFormSubmit"] {
+        background-color: #000000 !important;
+        color: #ffffff !important;
+        border: none !important;
+        font-weight: 700 !important;
+        font-size: 17px !important;
+        border-radius: 12px !important;
+    }
+
+    button[kind="primaryFormSubmit"] * {
+        color: #ffffff !important;
+    }
+
+    button[kind="primaryFormSubmit"]:hover {
+        background-color: #1f2937 !important;
+    }
+
+
+    /* =====================================================
+       RESULT BOX
+       ===================================================== */
+
+    .result-box {
+        background: white;
+        padding: 30px;
+        border-radius: 20px;
+        text-align: center;
+        box-shadow: 0 8px 30px rgba(15, 23, 42, 0.08);
+        border: 1px solid #e2e8f0;
+        margin-top: 25px;
+    }
+
+    .result-label {
+        font-size: 18px;
+        color: #64748b !important;
+    }
+
+    .result-score {
+        font-size: 52px;
+        font-weight: 800;
+        color: #4f46e5 !important;
+    }
+
+
+    /* =====================================================
+       SUCCESS / ERROR MESSAGE
+       ===================================================== */
+
+    div[data-testid="stAlert"] {
+        border-radius: 12px !important;
+    }
+
+    div[data-testid="stAlert"] p {
+        font-weight: 600 !important;
+    }
+
+
+    /* =====================================================
+       FOOTER
+       ===================================================== */
+
+    hr {
+        margin-top: 35px !important;
+        margin-bottom: 20px !important;
+    }
+
+</style>
 """, unsafe_allow_html=True)
 
 # =========================================================
