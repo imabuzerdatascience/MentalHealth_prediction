@@ -543,7 +543,7 @@ if submitted:
             response = requests.post(
                 API_URL,
                 json=payload,
-                timeout=10
+                timeout=120
             )
 
 
